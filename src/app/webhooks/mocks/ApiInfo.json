@@ -1,0 +1,33 @@
+{
+    "data":[
+        {
+            "id": 1,
+            "nome": "API1",
+            "desc": "Login dos Usuários",
+            "caminho": "api/usuarios/login",
+            "endpoints": [
+                {
+                    "method": "GET",
+                    "path": "login/findmyuser",
+                    "desc": "Localiza o usuário"
+                },
+                {
+                    "method": "POST",
+                    "path": "login/{studentid}/uploadpfp",
+                    "desc": "Fazer upload de foto de perfil"
+                },
+                {
+                    "method": "PUT",
+                    "path": "login",
+                    "desc": "Atualiza o nome de usuário"
+                },
+                {
+                    "method": "DELETE",
+                    "path": "login/{studentid}",
+                    "desc": "Deleta o usuário"
+                }
+            ]
+        }
+
+    ]
+}
