@@ -1,0 +1,78 @@
+.options {
+    padding: 30px;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    max-width: 1200px;
+    margin-left: 30px;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+.btn-option {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-option span {
+    margin-top: 10px;
+}
+
+.btn-option.primary {
+    background-color: #5fc86b;
+    color: white;
+}
+
+.btn-option.outlined {
+    background-color: white;
+    border: 2px solid #5fc86b;
+    color: #5fc86b;
+}
+
+.btn-option:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Responsividade para telas menores que 768px (ex: celulares) */
+@media (max-width: 768px) {
+    .options {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+    }
+
+    .row.justify-content-start {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col-auto {
+        margin-bottom: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn-option {
+        width: 90%;
+        height: auto;
+        padding: 20px 0;
+        margin-right: 0;
+        font-size: 18px;
+    }
+
+    .btn-option img {
+        width: 60px;
+        height: 60px;
+    }
+}
