@@ -1,11 +1,10 @@
 "use client";
 
-import ConfirmModal from "@/components/votacao/confirmModal";
-import CongratsText from "@/components/votacao/congratsText";
-import Header from "@/components/votacao/header";
-import ProjectCard from "@/components/votacao/projectCard";
+import ConfirmModal from "@/components/confirmModal";
+import Header from "@/components/header";
+import ProjectCard from "@/components/projectCard";
 import { useRef, useEffect, useState } from "react";
-import Button from "@/components/votacao/button";
+import Button from "@/components/button";
 import { useSearchParams } from "next/navigation";
 
 export default function GuestPage() {
