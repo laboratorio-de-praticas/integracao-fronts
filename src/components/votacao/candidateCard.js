@@ -1,4 +1,4 @@
-import CandidateInfoRow from "@/components/candidateInfoRow";
+import CandidateInfoRow from "@/components/votacao/candidateInfoRow";
 import Image from "next/image";
 
 const CandidateCard = ({ image, mobileImage, name, email, room }) => (
