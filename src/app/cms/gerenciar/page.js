@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react';
 import SearchHome from '../../../components/cms/search-home.js';
 import StudentCard from '../../../components/cms/student-card.js';
