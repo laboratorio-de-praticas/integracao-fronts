@@ -190,31 +190,38 @@
   
   }
   /* botao de semestre */
-  .semestre-container {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 12px;
-    border: 1.5px solid #F4BD50;
-    border-radius: 6px;
-    white-space: nowrap;
-    color: #F4BD50;
-    height: 40px;
-    width: 210;
-  }
-  
-  .semestre-label {
-    font-weight: bold;
-    margin: 0;
-  }
-  
-  .semestre-input {
-    border: none;
-    width: 60px;
-    color: #F4BD50;
-    font-weight: 800;
-    font-size: 18px;
-  }
+.semestre-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border: 1.5px solid #F4BD50;
+  border-radius: 6px;
+  white-space: nowrap;
+  color: #F4BD50;
+  height: 40px;
+  width: 270px; /* aumentei pra caber tudo sem estourar */
+  box-sizing: border-box; /* garante que padding não ultrapasse a largura */
+}
+
+.semestre-label {
+  padding-left: 45px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.semestre-input {
+  border: none;
+  width: 130px; /* largura suficiente pro "DSM4" */
+  color: #F4BD50;
+  font-weight: 600;
+  font-size: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: transparent;
+}
+
 
   /* campo nome */
 .nome-container {
@@ -264,18 +271,10 @@
     margin: 0;
   }
   
-  .semestre-input {
-    border: none;
-    width: 38px;
-    color: #F4BD50;
-    font-weight: 700;
-    font-size: 18px;
-    background-color: transparent;
-  }
   
   /* celular e nascimento */
 .celular-container,
-.nascimento-container {
+.ra-container {
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -290,14 +289,14 @@
 }
 
 .celular-label,
-.nascimento-label {
+.ra-label {
   font-weight: bold;
   color: #F4BD50;
   margin: 0;
 }
 
 .celular-input,
-.nascimento-input {
+.ra-input {
   border: none;
   outline: none;
   background-color: transparent;
@@ -308,7 +307,7 @@
 }
 
 /* ingresso */
-.ingresso-container {
+.matri-container {
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -321,14 +320,14 @@
   flex: 1 1 200px;
 }
 
-.ingresso-label {
+.matri-label {
   font-weight: bold;
   color: #F4BD50;
   margin: 0;
   white-space: nowrap;
 }
 
-.ingresso-input {
+.matri-input {
   border: none;
   outline: none;
   background-color: transparent;
@@ -491,7 +490,7 @@
 }
 
 /* nasc */
-.nasc-detalhe {
+.ra-detalhe {
   border-color: #004854;
   border-radius: 6px;
   border: 1.5px solid;
@@ -511,7 +510,7 @@
 }
 
 /* ingresso, semestre e curso*/
-.ingresso-sem-curso {
+.matri-sem-curso {
   display: flex;
   justify-content: flex-start; 
   gap: 20px; 
@@ -519,7 +518,7 @@
 }
 
 /* ingresso */
-.ingresso-detalhe {
+.matri-detalhe {
   border-color: #004854;
   border-radius: 6px;
   border: 1.5px solid;
@@ -535,7 +534,7 @@
   color: #004854 !important;
 }
 
-.ingresso-detalhe strong{
+.matri-detalhe strong{
   color: #004854 !important; 
 }
 /* semestre */
@@ -544,7 +543,7 @@
   border-radius: 6px;
   border: 1.5px solid;
   height: 40px;
-  width: 160px;
+  width: 300px;
   display: inline-flex;
   justify-content: flex-start;
   align-items: center; 
@@ -580,7 +579,7 @@
   width: 60px;
 
 }
-/*  tablets (até 992px) */
+/* Responsivo para telas até 992px */
 @media (max-width: 992px) {
   .student-row {
     gap: 12px;
@@ -609,39 +608,59 @@
     margin-top: 10px;
   }
 
-  .form-avatar img {
-    width: 140px;
-    height: 140px;
-  }
-
+  /* Ajuste para os containers dos inputs e labels */
   .nome-container,
   .celular-container,
-  .nascimento-container,
-  .ingresso-container,
+  .ra-container,
+  .matri-container,
   .semestre-container {
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px; /* Para espaçamento entre label e input */
   }
 
-  .nome-input {
+  /* Ajuste no estilo das labels */
+  .nome-container label,
+  .celular-container label,
+  .ra-container label,
+  .matri-container label,
+  .semestre-container label {
+    flex: 1;
+    text-align: left; /* Garante que a label fique alinhada à esquerda */
+  }
+
+  /* Ajuste nos inputs */
+  .nome-input,
+  .semestre-input,
+  .celular-input,
+  .ra-input,
+  .matri-input {
     width: 100%;
-  }
-
-  .form-fields {
-    flex: 1 1 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
 
   .nome-detalhe,
-  .cel-detalhe {
+  .cel-detalhe,
+  .nasc-detalhe,
+  .matri-detalhe,
+  .sem-detalhe {
     width: 100%;
   }
 
-  .cel-nasc-line {
+  .cel-nasc-line,
+  .matri-sem-curso {
     flex-direction: column;
     gap: 8px;
   }
 }
 
-/* celulares (até 576px) */
+/* Responsivo para celulares (até 576px) */
 @media (max-width: 576px) {
   .student-card {
     padding: 10px;
@@ -661,6 +680,7 @@
     height: 100px;
   }
 
+  /* Ajustes nos botões */
   .editar-button,
   .cancelar-button {
     width: 100%;
@@ -676,65 +696,43 @@
     width: 100%;
   }
 
+  /* Ajuste para os containers de inputs e labels */
   .nome-container,
   .semestre-container,
   .celular-container,
-  .nascimento-container,
-  .ingresso-container {
-    flex-direction: column;
-    align-items: flex-start;
+  .ra-container,
+  .matri-container {
     width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
   }
 
+  /* Ajuste nas labels */
+  .nome-container label,
+  .semestre-container label,
+  .celular-container label,
+  .ra-container label,
+  .matri-container label {
+    flex: 1;
+    text-align: left;
+  }
+
+  /* Ajuste nos inputs */
   .nome-input,
   .semestre-input,
   .celular-input,
-  .nascimento-input,
-  .ingresso-input {
-    width: 100%;
-  }
-
-  .nome-detalhe,
-  .cel-detalhe {
-    width: 100%;
+  .ra-input,
+  .matri-input {
+    width: calc(100% - 80px); /* Ajuste para os inputs ficarem menores */
+    padding: 8px;
+    margin-top: 4px;
+    border: none;
+    border-radius: 4px;
   }
 
   .seta-card {
     top: 5px;
     right: 5px;
   }
-}
-/* paginacao */
-.atual {
-  border-color: #808080;
-  border-radius: 5px;
-  color: #808080;
-  border: 1px solid;
-  width: 30px;
-  height: 30px;
-  
-}
-.anterior{
-  border-radius: 5px;
-  color: white;
-  background-color: #808080;
-  border: none;
-  width: 30px;
-  height: 30px;
-}
-.prox{
-  border-radius: 5px;
-  border: none;
-  color: white;
-  background-color: #808080;
-  width: 30px;
-  height: 30px;
-}
-.pagination{
-display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px; 
-  margin: 20px 0;
-  text-align: center;
 }

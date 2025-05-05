@@ -45,12 +45,12 @@ nav {
     object-fit: contain;
   }
   
-  .separador {
-    color: #000000;
-    font-size: 30px;
-    font-weight:100;
-    padding: 0 10px;
-  }
+.separador {
+  border-left: 3px solid #000; /* Linha vertical */
+  margin: 0 10px; /* Espaçamento entre as opções */
+  height: 30px; /* Definir a altura do separador */
+}
+
   
 /* drop */
 .nav-item.dropdown {
@@ -142,58 +142,108 @@ nav {
     width: 16px; 
     height: 16px;
   }
-  
-/* responsividade */
-@media (max-width: 992px) {
-    nav {
-      flex-direction: column;
-      align-items: flex-start;
-      height: auto;
-      padding: 10px 20px;
-      gap: 10px;
-    }
-  
-    .navbar-nav {
-      flex-direction: column;
-      align-items: flex-start;
-      width: 100%;
-    }
-  
-    .home-item {
-      margin-left: 0;
-      margin-top: 10px;
-    }
-  
-    .logo-cps-55,
-    .logo-fatec-registro {
-      height: auto;
-      max-width: 80%;
-      margin-bottom: 10px;
-    }
-  
-    .separador {
-      display: none; 
-    }
-  
-    .nav-link {
-      padding: 8px 0;
-      font-size: 18px;
-    }
 
-    .perfil-retangulo {
-        width: 50px;
-        height: 50px;
-        padding: 0;
-        border-radius: 50%;
-        background-color: transparent;
-        justify-content: center;
-        gap: 0;
-      }
-      
-      .perfil-retangulo .info-perfil,
-      .perfil-retangulo .icon-vector {
-        display: none;
-      }
-      
+  .hamburguer-btn {
+  background: none;
+  border: none;
+  display: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.hamburguer-btn img {
+  width: 20px;
+  height: 13px;
+}
+  /* responsividade */
+@media (max-width: 992px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 10px 20px;
+    gap: 10px;
   }
-  
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .home-item {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .logo-cps-55,
+  .logo-fatec-registro {
+    height: auto;
+    max-width: 80%;
+    margin-bottom: 10px;
+  }
+
+  .separador {
+    display: none; 
+  }
+
+  .nav-link {
+    padding: 8px 0;
+    font-size: 18px;
+  }
+
+  /* Foto de perfil redonda e reduzida */
+  .perfil-retangulo {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .perfil-retangulo .info-perfil,
+  .perfil-retangulo .icon-vector {
+    display: none;
+  }
+
+  /* Botão de hambúrguer */
+  .hamburguer-btn {
+    background: none;
+    border: none;
+    display: block;
+    padding: 8px;
+    margin-left: auto;
+    cursor: pointer;
+  }
+
+  .hamburguer-btn img {
+    width: 20px;
+    height: 13px;
+  }
+
+  /* Menu colapsado aberto */
+  .collapse.navbar-collapse {
+    display: none;
+    width: 100%;
+  }
+
+  .collapse.navbar-collapse.show-menu-navbar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #B20000;
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .navbar-nav .nav-item {
+    width: 100%;
+  }
+
+  .navbar-nav .nav-link {
+    width: 100%;
+    padding: 12px 20px;
+  }
+}
