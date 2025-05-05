@@ -1,12 +1,13 @@
+"use client"; // 👈 Necessário para habilitar hooks client-side
+
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useSearchParams, useRouter } from 'next/navigation'; // 👈 Importa do next/navigation
 import "../../styles/form-student.css";
 
 const EditStudent = () => {
-    // jose, eu oreciso q dps se a pessoa nao tinha o checkbox marcado antes e quiser agora, dps q o form for enviado de update, vc redirecione 
-// ela pra pagina /eventosCandidatura pra ela ver em qual evento ela vai se candidatar, tendeu?
+    const searchParams = useSearchParams();
     const router = useRouter();
-    const { id } = router.query;
+    const id = searchParams.get("id"); // 👈 Pega o id da URL (ex: ?id=123)
 
     const [formData, setFormData] = useState({
         nome: '',
@@ -53,7 +54,6 @@ const EditStudent = () => {
 
     const handleChange = (e) => {
         const { name, value, type, checked, files } = e.target;
-
         if (type === 'file') {
             setFormData({ ...formData, [name]: files[0] });
         } else if (type === 'checkbox') {
@@ -92,7 +92,7 @@ const EditStudent = () => {
 
             if (response.ok) {
                 alert('Usuário atualizado com sucesso!');
-                router.push('/eventosCandidatura'); // Redireciona após o envio do formulário
+                router.push('/eventosCandidatura'); // 👈 Redirecionamento com next/navigation
             } else {
                 alert(`Erro: ${result.mensagem}`);
             }
@@ -128,7 +128,6 @@ const EditStudent = () => {
                     encType="multipart/form-data"
                 >
                     <div className="form-grid">
-                        {/* Lado esquerdo */}
                         <div className="foto-container">
                             <div className="photo-box">
                                 <input
@@ -149,7 +148,6 @@ const EditStudent = () => {
                             </div>
                         </div>
 
-                        {/* Lado direito */}
                         <div className="info-container">
                             <div className="d-flex align-items-center gap-3 mb-3">
                                 <label className="checkbox-label">
@@ -245,9 +243,9 @@ const EditStudent = () => {
                                     <button type="submit" className="btn btn-warning">
                                         Editar
                                     </button>
-                                    <a href="/eventosCandidatura" className="btn btn-outline-danger">
+                                    <button type="button" className="btn btn-outline-danger" onClick={() => router.push('/eventosCandidatura')}>
                                         Cancelar
-                                    </a>
+                                    </button>
                                 </div>
                             </div>
                         </div>
