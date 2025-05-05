@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { ApiTable } from "./components/webhooks/ApiTable/ApiTable";
+import { ApiTable } from "../../components/webhooks/ApiTable/ApiTable";
 
 export default function Home() {
 

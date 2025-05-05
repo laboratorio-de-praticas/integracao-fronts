@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Logo_menu from "../../../../../public/imgs/logo_menu.svg"
+import Logo_menu from "../../../../public/imgs/logo_menu.svg"
 
 export const NavBar = () => {
   return (

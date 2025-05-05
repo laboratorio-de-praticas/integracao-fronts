@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Logo_sp from "../../../../../public/imgs/logo_sp.svg"
+import Logo_sp from "../../../../public/imgs/logo_sp.svg"
 
 export const Footer = () => {
   return (

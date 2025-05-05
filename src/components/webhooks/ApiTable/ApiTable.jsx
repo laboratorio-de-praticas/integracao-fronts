@@ -1,4 +1,4 @@
-import mockData from "../../../webhooks/mocks/ApiCards.json";
+import mockData from "@/app/webhooks/mocks/ApiCards";
 import { ApiTableItem } from "./ApiTableitem";
 
 export const ApiTable = () => {
