@@ -8,7 +8,7 @@ const FormVisitante = () => {
   const router = useRouter();
 
   const handleRedirect = () => {
-    router.push('/homeLogado');
+    router.push('/cms/homeLogado');
   };
 
   return (

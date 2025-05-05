@@ -112,7 +112,7 @@ const MenuProfile = ({
           ) : (
             <button
             className="editar-perfil"
-            onClick={() => window.location.href = '/editStudent'}
+            onClick={() => window.location.href = '/cms/editStudent'}
           >
             Editar Perfil
           </button>

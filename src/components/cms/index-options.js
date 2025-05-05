@@ -21,25 +21,25 @@ const IndexOptions = () => {
         {userType === "adm" && (
           <>
             <div className="col-auto">
-              <button className="btn-option visitante" onClick={() => handleRedirect('/cadVisitante')}>
+              <button className="btn-option visitante" onClick={() => handleRedirect('/cms/cadVisitante')}>
                 <img src="/imgs/cadastro-visitante-branco.svg" alt="" width={90} height={90} />
                 <span>Cadastro Visitante</span>
               </button>
             </div>
             <div className="col-auto">
-              <button className="btn-option sistema" onClick={() => handleRedirect('/gerenciar')}>
+              <button className="btn-option sistema" onClick={() => handleRedirect('/cms/gerenciar')}>
                 <img src="/imgs/entrar-sistema.svg" alt="" width={90} height={90} />
                 <span>Entrar Sistema</span>
               </button>
             </div>
             <div className="col-auto">
-              <button className="btn-option pedidos" onClick={() => handleRedirect('/pedidos')}>
+              <button className="btn-option pedidos" onClick={() => handleRedirect('/cms/pedidos')}>
                 <img src="/imgs/gerenciar-pedidos.svg" alt="" width={90} height={90} />
                 <span>Gerenciar Pedidos</span>
               </button>
             </div>
             <div className="col-auto">
-              <button className="btn-option eventos" onClick={() => handleRedirect('/eventos')}>
+              <button className="btn-option eventos" onClick={() => handleRedirect('/cms/eventos')}>
                 <img src="/imgs/ver-eventos.svg" alt="" width={90} height={90} />
                 <span>Ver eventos</span>
               </button>
@@ -51,13 +51,13 @@ const IndexOptions = () => {
         {userType === "aluno" && (
           <>
             <div className="col-auto">
-              <button className="btn-option projeto" onClick={() => handleRedirect('/formProject')}>
+              <button className="btn-option projeto" onClick={() => handleRedirect('/cms/formProject')}>
                 <img src="/imgs/cadastro-proj.svg" alt="" width={90} height={90} />
                 <span>Cadastrar Projeto</span>
               </button>
             </div>
             <div className="col-auto">
-              <button className="btn-option edit-projeto" onClick={() => handleRedirect('/editProject')}>
+              <button className="btn-option edit-projeto" onClick={() => handleRedirect('/cms/editProject')}>
                 <img src="/imgs/edit-proj.svg" alt="" width={90} height={90} />
                 <span>Editar Projeto</span>
               </button>

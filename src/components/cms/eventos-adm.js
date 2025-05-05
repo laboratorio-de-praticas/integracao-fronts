@@ -25,7 +25,7 @@ const ShowEventos = () => {
             <div className="btn-wrapper">
               <button className="ocultar" onClick={() => { /* lógica de ocultar */ }}>Ocultar Todos</button>
               <span>|</span>
-              <button className="cadastrar" onClick={() => handleNavigate('/CadEvents')}>Cadastrar</button>
+              <button className="cadastrar" onClick={() => handleNavigate('/cms/CadEvents')}>Cadastrar</button>
             </div>
           </div>
         </div>
@@ -37,7 +37,7 @@ const ShowEventos = () => {
         <div className="card-evento">
           <h3 className="evento-title">HubTec'25</h3>
           <div className="acoes-evento">
-            <button className="editar-evento" onClick={() => handleNavigate('/editEvents')}>Editar</button>
+            <button className="editar-evento" onClick={() => handleNavigate('/cms/editEvents')}>Editar</button>
             <button className="deletar-evento" onClick={() => { /* lógica para deletar */ }}>Deletar</button>
           </div>
         </div>
