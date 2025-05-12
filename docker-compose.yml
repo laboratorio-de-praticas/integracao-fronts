@@ -7,4 +7,7 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
+      - PORT=3000
+      - NEXT_PUBLIC_API_URL=http://10.67.56.95:5001
+      - NEXT_PUBLIC_VITRINE_BE=http://10.67.56.95:5002
     restart: unless-stopped
