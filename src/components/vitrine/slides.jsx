@@ -25,10 +25,6 @@ export default function Slides() {
   };
 
   useEffect(() => {
-    localStorage.setItem(
-      "token",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-    );
     const token = localStorage.getItem("token");
 
     if (!token) {
@@ -128,13 +124,18 @@ export default function Slides() {
         ))}
       </div>
 
-      {representantes.length === 0 && (
+      {representantes.length === 0 && !error && (
         <div className="mt-8 text-center text-gray-500 italic text-[1.4rem] leading-[1.3] m-0 3xl:text-[2.9rem]">
           Sem representantes disponíveis para esse evento no momento.
         </div>
       )}
+      {error && (
+        <div className="py-6  italic text-red-500 text-center mt-4 font-semibold text-[1.4rem] leading-[1.3] m-0 3xl:text-[2.9rem]">
+          Você não possui as permissões necessárias.
+        </div>
+      )}
 
-      <div className="w-full mt-8 h-4 bg-gray-200 overflow-hidden min-h-4" style={{ margin: "0 auto" }}>
+      <div className="w-full mt-8 h-4 bg-gray-200 overflow-hidden min-h-4" style={{ width: `${Math.min(100, (representantes.length / 4) * 100)}%`, margin: "0 auto" }}>
         <div
           className={`h-full ${curso}-PROGRESS transition-all duration-200 ease-in-out`}
           style={{ width: `${progress}%` }}
