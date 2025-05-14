@@ -1,22 +1,31 @@
-'use client'; // Necessário para usar hooks do React, como useContext
+'use client';
 
-import Head from "next/head";
-import { TurmaProvider } from "@/context/TurmaContext";
+import React, { useContext, useState, useEffect } from 'react';
+import NuvemDePalavras from '@/components/WordCloud/NuvemDePalavras';
+import { TurmaContext } from '@/context/TurmaContext'; // Adicionando a importação do contexto
+import styles from '@/app/dash/dash-externa/nuvem-projetos.module.css';
 
-export default function DashExterna() {
+const ProjectCloud = () => {
+  const {
+    nuvemPalavrasProjetos
+  } = useContext(TurmaContext);
+
+  const [projetosFiltrados, setProjetosFiltrados] = useState([]);
+
+  // useEffect para carregar todos os projetos
+  useEffect(() => {
+    setProjetosFiltrados(nuvemPalavrasProjetos ? Object.values(nuvemPalavrasProjetos).flat() : []);
+  }, [nuvemPalavrasProjetos]); // Atualiza os projetos sempre que 'nuvemPalavrasProjetos' mudar
+
   return (
-    <TurmaProvider>
-      <>
-        <Head>
-          <title>Dash Externa</title>
-          <meta name="description" content="Descrição da sua aplicação" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-        </Head>
+    <div className={styles.container}>
+      <h1 className={`${styles.header} text-3xl font-bold mb-8 text-center`}>Nuvem de Projetos</h1>
 
-        <main>
-          <h1>DashExterna</h1>
-        </main>
-      </>
-    </TurmaProvider>
+      <div className={styles.card}>
+        <NuvemDePalavras words={projetosFiltrados} />
+      </div>
+    </div>
   );
-}
+};
+
+export default ProjectCloud;
